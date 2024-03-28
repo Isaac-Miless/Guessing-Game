@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess the Number</title>
+    <link rel="stylesheet" href="./ibm4.css" />
+    <script src="./ibm4.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <!-- The Game Container -->
+      <div class="game-container">
+        <!-- Start Screen -->
+        <div class="start-screen" id="start-screen">
+          <h1 id="page-title-main">
+            Guess the <span class="title-decor">Number</span>
+          </h1>
+          <p id="game-instructions">Select a Range of Numbers</p>
+
+          <!-- Number Range Form -->
+          <form id="number-range-form">
+            <input
+              type="radio"
+              id="number-one"
+              name="number-input"
+              value="10"
+              required
+            />
+            <label for="number-one">1 - 10</label>
+            <input
+              type="radio"
+              id="number-two"
+              name="number-input"
+              value="100"
+              required
+            />
+            <label for="number-two">1 - 100</label>
+            <input
+              type="radio"
+              id="number-three"
+              name="number-input"
+              value="1000"
+              required
+            />
+            <label for="number-three">1 - 1000</label>
+            <br />
+            <button type="submit" id="start-btn" disabled>Start</button>
+          </form>
+        </div>
+
+        <!-- Second (Game) Screen -->
+        <div class="game-screen hidden" id="game-screen">
+          <div class="left">
+            <h1 id="page-title-game">
+              Guess the <span class="title-decor">Number</span>
+            </h1>
+            <div class="input-container">
+              <!-- Number Guessing Form -->
+              <form id="input-form">
+                <label for="guess-input" id="guess-label"
+                  >Enter a Number Between 1 and <span id="range-text"></span>
+                </label>
+                <input type="number" min="1" name="guess" id="guess-input" />
+
+                <button type="submit" id="check-btn">Check</button>
+              </form>
+
+              <p id="hint">This isn't visible!</p>
+
+              <p id="guess-count">
+                Number of Guesses Remaining: <span id="guesses"></span>
+              </p>
+            </div>
+          </div>
+
+          <div class="right">
+            <div class="guess-record">
+              <p id="guess-record-label">Guess Record</p>
+              <ul id="guess-list"></ul>
+            </div>
+          </div>
+        </div>
+
+        <dialog data-modal id="modal">
+          <p id="modal-message"></p>
+          <button id="modal-btn">Play again</button>
+        </dialog>
+      </div>
+    </main>
+  </body>
+</html>
